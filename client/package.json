@@ -11,7 +11,7 @@
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint:style": "stylelint '*.{scss,vue}' '**/*.{scss,vue}'",
     "lint:prettier": "prettier --check .",
-    "lint": "yarn lint:js && yarn lint:style && yarn lint:prettier"
+    "lint": "pnpm run lint:js && pnpm run lint:style && pnpm run lint:prettier"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -21,11 +21,13 @@
     "eslint": "^8.51.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "nuxt": "^3.7.4",
+    "postcss-html": "^1.5.0",
     "prettier": "^3.0.3",
     "stylelint": "^15.10.3",
+    "stylelint-config-recommended-scss": "^13.0.0",
+    "stylelint-config-recommended-vue": "^1.5.0",
+    "stylelint-config-standard-scss": "^11.0.0",
     "stylelint-order": "^6.0.3",
-    "stylelint-prettier": "^4.0.2",
-    "stylelint-scss": "^5.2.1",
     "typescript": "^5.2.2"
   }
 }
