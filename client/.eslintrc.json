@@ -1,0 +1,53 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  },
+  "plugins": ["tailwindcss"],
+  "extends": [
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:prettier/recommended",
+    "plugin:tailwindcss/recommended",
+    "eslint:recommended"
+  ],
+  "rules": {
+    "no-unused-vars": ["error", { "args": "none" }],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "indent": ["error", 2],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "space-before-function-paren": ["error", "never"],
+    "no-var": "error",
+    "prefer-const": "error",
+    "prefer-destructuring": "error",
+    "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+    "eqeqeq": "error",
+    "prefer-template": "error",
+    "no-useless-escape": "error",
+    "max-len": ["error", { "code": 95, "ignoreUrls": true }],
+    "no-trailing-spaces": "error",
+    "no-alert": "error",
+    "no-eval": "error",
+    "no-undef": "off",
+    "no-extra-boolean-cast": "error",
+    "no-floating-decimal": "error",
+    "no-useless-return": "error",
+    "no-with": "error",
+    "no-empty-function": "error",
+    "no-debugger": "error",
+    "arrow-parens": ["error", "always"],
+    "func-names": ["error", "never"],
+    "vue/multi-word-component-names": "off",
+    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/no-contradicting-classname": "error",
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/enforces-shorthand": "error",
+    "tailwindcss/migration-from-tailwind-2": "off"
+  }
+}
