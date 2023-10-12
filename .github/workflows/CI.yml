@@ -21,10 +21,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm install -g yarn
-      - run: yarn install
+      - run: npm install -g pnpm
+      - run: pnpm install
         working-directory: client
-      - run: yarn lint
+      - run: pnpm run lint
         working-directory: client
 
   golangci:

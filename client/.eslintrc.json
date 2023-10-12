@@ -9,10 +9,11 @@
   "parserOptions": {
     "parser": "@typescript-eslint/parser"
   },
-  "plugins": ["tailwindcss"],
   "extends": [
     "@nuxtjs/eslint-config-typescript",
+    "plugin:prettier/recommended",
     "plugin:tailwindcss/recommended",
+    "plugin:vue/vue3-recommended",
     "eslint:recommended"
   ],
   "rules": {
