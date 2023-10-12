@@ -2,6 +2,10 @@
   "name": "nuxt-app",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": "please-use-pnpm"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -10,7 +14,7 @@
     "postinstall": "nuxt prepare",
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint:style": "stylelint '*.{scss,vue}' '**/*.{scss,vue}'",
-    "lint:prettier": "prettier --check .",
+    "lint:prettier": "prettier --check . '!pnpm-lock.yaml'",
     "lint": "pnpm run lint:js && pnpm run lint:style && pnpm run lint:prettier"
   },
   "devDependencies": {
