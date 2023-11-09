@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h1>Index</h1>
+    <h2>Footer</h2>
   </div>
 </template>

@@ -5,6 +5,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/fiber/v2/middleware/csrf"
 	"github.com/gofiber/fiber/v2/middleware/encryptcookie"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/requestid"
@@ -31,14 +32,14 @@ func main() {
 		Except: []string{"csrf_token"},
 	}))
 
-	// app.Use(csrf.New(csrf.Config{
-	// 	CookieName:     "csrf_token",
-	// 	CookieSecure:   true,
-	// 	CookieHTTPOnly: true,
-	// 	ErrorHandler: func(c *fiber.Ctx, err error) error {
-	// 		return c.JSON(fiber.Map{"csrf_token:": fiber.StatusForbidden})
-	// 	},
-	// }))
+	app.Use(csrf.New(csrf.Config{
+		CookieName:     "csrf_token",
+		CookieSecure:   true,
+		CookieHTTPOnly: true,
+		ErrorHandler: func(c *fiber.Ctx, err error) error {
+			return c.JSON(fiber.Map{"csrf_token:": fiber.StatusForbidden})
+		},
+	}))
 
 	app.Use(requestid.New())
 
