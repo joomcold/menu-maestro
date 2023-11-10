@@ -38,7 +38,7 @@ jobs:
       - working-directory: server
         run: |
           gem install bundler
-          bundle install --job 4 --retry 3
+          bundle install --retry 3
       - working-directory: server
         run: |
           bundle exec rubocop
