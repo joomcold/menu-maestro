@@ -18,6 +18,7 @@ COPY package.json pnpm-lock.yaml ./
 
 # Install dependencies using pnpm
 RUN pnpm install
+RUN pnpm i @rollup/rollup-linux-arm64-musl --force
 
 # Copy the rest of the application code
 COPY . .
