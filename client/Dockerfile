@@ -5,7 +5,6 @@ FROM node:20-alpine3.18
 ENV NAME nuxt_frontend
 ENV LANG C.UTF-8
 ENV ROOT /client
-ENV ENV=development
 
 # Install pnpm globally
 RUN npm install -g pnpm

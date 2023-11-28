@@ -5,7 +5,6 @@ FROM ruby:3.2.2-alpine3.18
 ENV NAME rails_backend
 ENV LANG C.UTF-8
 ENV ROOT /server
-ENV ENV=development
 
 # Install Packages
 RUN apk update && apk upgrade && apk add --update --no-cache \

@@ -52,33 +52,23 @@ interaction:
     service: backend
     command: bundle exec i18n-tasks
 
-  slim-lint:
-    description: Run slim-lint (Add 'app/views' if you wanna check only view files)
-    service: backend
-    command: bundle exec slim-lint
+  lint:
+    description: Run eslint, style and prettier
+    service: frontend
+    command: pnpm lint
 
-  eslint:
-    description: Run eslint
-    service: backend
-    command: yarn lint:javascript --fix
-
-  stylelint:
-    description: Run stylelint
-    service: backend
-    command: yarn lint:style
+  pnpm:
+    description: Run pnpm command
+    service: frontend
+    command: pnpm
 
   psql:
     description: Run psql console
     service: postgres
-    command: psql -h postgres -U root -d sourcedout_development
-
-  yarn:
-    description: Run yarn command
-    service: backend
-    command: yarn
+    command: psql -h postgres -U root -d menu_maestro_development
 
 provision:
   - dip compose build
   - dip compose run --rm backend rake db:create db:migrate db:seed
-  - dip yarn
+  - dip pnpm i
   - dip up -d
