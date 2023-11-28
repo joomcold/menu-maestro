@@ -16,13 +16,25 @@ services:
     container_name: backend
     build:
       context: ./server
-    image: go-backend
+    image: rails-backend
+    command: "bundle exec rails s -b 0.0.0.0"
     ports:
-      - "8080:8080"
+      - "3000:3000"
     volumes:
       - ./server:/server
     depends_on:
       - postgres
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./client
+    image: nuxt-frontend
+    command: "pnpm dev"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./client:/client
 
 volumes:
   postgres-data:

@@ -1,0 +1,74 @@
+version: '7'
+
+environment:
+  RAILS_ENV: development
+
+compose:
+  files:
+    - docker-compose.development.yml
+
+interaction:
+  bash:
+    description: Open the app container bash shell
+    service: backend
+    command: /bin/bash
+    compose_run_options: [no-deps]
+
+  bundle:
+    description: Run bundler command
+    service: backend
+    command: bundle
+    compose_run_options: [no-deps]
+
+  rake:
+    description: Run rake command
+    service: backend
+    command: bundle exec rake
+
+  rails:
+    description: Run rails command
+    service: backend
+    command: bundle exec rails
+    subcommands:
+      s:
+        description: Start rails server
+        service: backend
+        compose_run_options: [service-ports]
+
+  rspec:
+    description: Run Rspec
+    service: backend
+    environment:
+      RAILS_ENV: test
+    command: bundle exec rspec
+
+  rubocop:
+    description: Run rubocop
+    service: backend
+    command: bundle exec rubocop
+
+  i18n-tasks:
+    description: Run i18n-tasks
+    service: backend
+    command: bundle exec i18n-tasks
+
+  lint:
+    description: Run eslint, style and prettier
+    service: frontend
+    command: pnpm lint
+
+  pnpm:
+    description: Run pnpm command
+    service: frontend
+    command: pnpm
+
+  psql:
+    description: Run psql console
+    service: postgres
+    command: psql -h postgres -U root -d menu_maestro_development
+
+provision:
+  - dip compose build
+  - dip compose run --rm backend rake db:create db:migrate db:seed
+  - dip pnpm i
+  - dip up -d

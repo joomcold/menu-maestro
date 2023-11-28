@@ -1,0 +1,85 @@
+require:
+  - rubocop/cop/internal_affairs
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0
+  TargetRailsVersion: 6.1
+  SuggestExtensions: false
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - lib/tasks/auto_annotate_models.rake
+    - node_modules/**/*
+
+Rails:
+  Enabled: true
+
+Rails/CreateTableWithTimestamps:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/RepeatedExampleGroupBody:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - 'config/**/*'
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/**/*'
+    - 'db/migrate/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'
+
+RSpec/NestedGroups:
+  Max: 5
+
+RSpec/ContextWording:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  Exclude:
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'bin/*'
+    - 'script/**/*'
+    - 'vendor/**/*'
+    - 'lib/**/*'
+    - '**/Gemfile'
+
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
