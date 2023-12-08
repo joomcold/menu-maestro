@@ -23,4 +23,4 @@ RUN pnpm i @rollup/rollup-linux-arm64-musl --force
 COPY . .
 
 # Expose the port that the app will run on
-EXPOSE 8080
+EXPOSE 5173
