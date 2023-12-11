@@ -3,6 +3,7 @@ class Api::Users::RegistrationsController < Devise::RegistrationsController
 
   private
 
+  # Signup
   def respond_with(resource, _opts = {})
     register_success && return if resource.persisted?
 
